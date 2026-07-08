@@ -5,11 +5,11 @@ class Worker:
         self.capacity = capacity
         self.tasks = []
 
-    def current_load(self):
-        return len(self.tasks)
+    def current_workload(self):
+        return sum(task.complexity for task in self.tasks)
     
     def can_take_task(self):
-        return self.current_load() < self.capacity
+        return self.current_workload() < self.capacity
 
     def add_task(self, task):
         self.tasks.append(task)
