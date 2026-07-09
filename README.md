@@ -22,10 +22,14 @@ project/
 |   ├── task.py
 |   └── worker.py
 |
+├── screenshots/
+|   ├── sample_output_1.png
+|   └── sample_output_2.png
+|
 ├── .gitignore
-├── sample_data.py
+├── README.md
 ├── main.py
-└── README.md
+└── sample_data.py
 ```
 
 ## How to Run
