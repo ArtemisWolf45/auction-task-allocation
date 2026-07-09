@@ -13,6 +13,7 @@ class Worker:
 
     def add_task(self, task):
         self.tasks.append(task)
+        self.position = task.position
 
     def __str__(self):
         return f"Worker {self.worker_id}: {self.current_load()} tasks"
