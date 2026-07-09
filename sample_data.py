@@ -2,17 +2,17 @@ WORKERS = [
     {
         "worker_id": 1,
         "position": 6,
-        "capacity": 10
+        "capacity": 14
     },
     {
         "worker_id": 2,
         "position": 8,
-        "capacity": 8
+        "capacity": 11
     },
     {
         "worker_id": 3,
         "position": 15,
-        "capacity": 12
+        "capacity": 17
     },
     {
         "worker_id": 4,
