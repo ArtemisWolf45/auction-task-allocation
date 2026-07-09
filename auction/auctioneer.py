@@ -1,4 +1,4 @@
-from bidding import calculate_bid
+from auction.bidding import calculate_bid
 
 def run_auction(task, workers):
     bids = []
