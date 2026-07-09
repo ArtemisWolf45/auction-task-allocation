@@ -3,7 +3,7 @@ def calculate_distance(worker, task):
     return abs(worker.position - task.position)
 
 def calculate_bid(worker, task, load_penalty=3):
-    if not(worker.can_take_task()):
+    if not(worker.can_take_task(task)):
         return None
     
     distance = calculate_distance(worker, task)

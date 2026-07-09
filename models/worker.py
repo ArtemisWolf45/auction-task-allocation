@@ -8,8 +8,8 @@ class Worker:
     def current_workload(self):
         return sum(task.complexity for task in self.tasks)
     
-    def can_take_task(self):
-        return self.current_workload() < self.capacity
+    def can_take_task(self, task):
+        return self.current_workload() + task.complexity <= self.capacity
 
     def add_task(self, task):
         self.tasks.append(task)
