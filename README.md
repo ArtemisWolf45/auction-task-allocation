@@ -30,7 +30,8 @@ project/
 |
 ├── screenshots/
 |   ├── sample_output_1.png
-|   └── sample_output_2.png
+|   ├── sample_output_2.png
+|   └── system_architecture_diagram.png
 |
 ├── .gitignore
 ├── README.md
