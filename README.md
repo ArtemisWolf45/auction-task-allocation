@@ -12,7 +12,7 @@ A decentralized task allocation simulation where workers compete for tasks using
 
 ## System Architecture
 
-<img src="screenshots/system_architecture_diagram.png" width = 350 alt="Diagram of system architecture">
+<img src="screenshots/system_architecture_diagram.png" width = 600 alt="Diagram of system architecture">
 
 This diagram illustrates the task allocation workflow. When a new task becomes available, the auction manager broadcasts it to all eligible workers. Each worker independently evaluates the task and submits a bid based on predefined criteria such as distance and current workload. The auction manager compares the bids and assigns the task to the worker with the lowest bid. 
 
