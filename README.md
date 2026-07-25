@@ -10,6 +10,12 @@ A decentralized task allocation simulation where workers compete for tasks using
 - Deterministic tie-breaking
 - Handling of unassigned tasks
 
+## System Architecture
+
+<img src="screenshots/system_architecture_diagram.png" width = 350 alt="Diagram of system architecture">
+
+This diagram illustrates the task allocation workflow. When a new task becomes available, the auction manager broadcasts it to all eligible workers. Each worker independently evaluates the task and submits a bid based on predefined criteria such as distance and current workload. The auction manager compares the bids and assigns the task to the worker with the lowest bid. 
+
 ## Project Structure
 ```
 project/
@@ -32,6 +38,29 @@ project/
 └── sample_data.py
 ```
 
+## Component Overview
+
+| Component | Responsibility |
+|-----------|---------------|
+| Worker | Autonomous agent responsible for evaluating tasks, submitting bids, and executing assigned tasks. |
+| Task | Represents a unit of work containing task-related information used during allocation. |
+| Bid | A value calculated by an eligible worker based on criteria such as distance and workload. |
+| Auction Manager | Conducts the reverse auction by collecting bids and assigning the task to the worker with the lowest bid. |
+
+## Execution Flow
+
+1. Workers and tasks are initialized
+2. Tasks are auctioned one at a time
+3. Eligible workers calculate their bid
+4. The auctioneer selects the lowest bid as the winner
+5. The winning worker executes the task
+6. This process repeats until all tasks have been processed
+
+## Requirements
+
+- Python 3.10+
+- Standard Python library only (no exteral packages required)
+
 ## How to Run
 ```bash
 python main.py
@@ -50,13 +79,25 @@ The distance component of a worker's bid is calculated as the absolute differenc
 
 If multiple workers submit the same lowest bid, then the worker with the lowest id is selected. This ensures deterministic and reproducible results.
 
-## Design Assumptions
+## Design Decisions
 
 - Workers move to the location of a completed task
 - Task complexity contributes to a workers workload
 - Tasks are auctioned sequentially
 - Distance is calculated on a one-dimensional number line
 - Deadlines represent the maximum travel distance a worker can cover to reach a task
+
+## Configuration
+
+The sample data can be adjusted in `sample_data.py`.
+
+The following parameters can be adjusted:
+- Number of workers
+- Number of tasks
+- Worker capacities
+- Task deadlines
+- Task locations
+- Task complexities
 
 ## Sample Outputs
 
@@ -66,7 +107,8 @@ If multiple workers submit the same lowest bid, then the worker with the lowest 
 ### Final Worker Loads + Unassigned Tasks
 <img src="screenshots/sample_output_2.png" width="350" alt="Final worker loads and unassigned tasks output">
 
-## Possible Improvements
-- Allow workers to drop previously assigned tasks when a more suitable task is available
+## Future Enhancements
+
 - Auction multiple tasks concurrently instead of sequentially
+- Allow workers to drop previously assigned tasks when a more suitable task is available
 - Have workers and tasks be placed on a two-dimensional grid instead of a number line
